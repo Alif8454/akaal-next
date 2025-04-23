@@ -1,103 +1,196 @@
+'use client';
+import React, { useEffect } from "react";
+import Head from "next/head";
 import Image from "next/image";
+import 'styles/style.css';
+
+import { initCarousel } from '../../utils/carousel';
+import { addHoverEffect } from '../../utils/hover';
 
 export default function Home() {
-  return (
-    <div className="grid grid-rows-[20px_1fr_20px] items-center justify-items-center min-h-screen p-8 pb-20 gap-16 sm:p-20 font-[family-name:var(--font-geist-sans)]">
-      <main className="flex flex-col gap-[32px] row-start-2 items-center sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={180}
-          height={38}
-          priority
-        />
-        <ol className="list-inside list-decimal text-sm/6 text-center sm:text-left font-[family-name:var(--font-geist-mono)]">
-          <li className="mb-2 tracking-[-.01em]">
-            Get started by editing{" "}
-            <code className="bg-black/[.05] dark:bg-white/[.06] px-1 py-0.5 rounded font-[family-name:var(--font-geist-mono)] font-semibold">
-              src/app/page.tsx
-            </code>
-            .
-          </li>
-          <li className="tracking-[-.01em]">
-            Save and see your changes instantly.
-          </li>
-        </ol>
+  useEffect(() => {
+    initCarousel();
+    addHoverEffect();
+  }, []);
 
-        <div className="flex gap-4 items-center flex-col sm:flex-row">
-          <a
-            className="rounded-full border border-solid border-transparent transition-colors flex items-center justify-center bg-foreground text-background gap-2 hover:bg-[#383838] dark:hover:bg-[#ccc] font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 sm:w-auto"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
+    return (
+      <>
+        <Head>
+          <title>Akaal</title>
+          <meta name="viewport" content="width=device-width, initial-scale=1" />
+        </Head>
+
+        <nav className="navbar navbar-expand-lg">
+          <div className="container-fluid">
+            <button
+              className="navbar-toggler"
+              type="button"
+              data-bs-toggle="collapse"
+              data-bs-target="#navbarNav"
+            >
+              <span className="navbar-toggler-icon"></span>
+            </button>
+
+            {/* Logo dipindah setelah toggle button */}
+            <a
+              className="navbar-brand text-white order-lg-1 mx-lg-auto"
+              href="#"
+            >
+              <Image
+                src="public/img/icon-gradientbg-rgb.png"
+                alt="Logo"
+                width="24"
+                height="24"
+                className="d-inline-block align-text-top"
+              />
+              Akaal
+            </a>
+
+            <div
+              className="collapse navbar-collapse order-lg-2"
+              id="navbarNav"
+            >
+              <ul className="navbar-nav mx-auto">
+                <li className="nav-item">
+                  <a className="nav-link" href="#">Home</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">About Akaal</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">Our Services</a>
+                </li>
+                <li className="nav-item">
+                  <a className="nav-link" href="#">Portfolio</a>
+                </li>
+              </ul>
+            </div>
+          </div>
+          <div className="contact-btn-container d-none d-lg-block">
+            <button>
+              <span className="text">Contact Us</span>
+            </button>
+          </div>
+        </nav>
+
+        <section className="hero-section">
+          <header className="hero-header">
+            <div className="hero-content" id="carouselSlides">
+              {/* Slide 1 */}
+              <div className="slide active">
+                <div className="rectangle-container">
+                  <div className="content">
+                    <h2>
+                      Be The Game <span>Changer with</span>
+                      <br />
+                      One Stop <span>Digi-Solution</span>
+                    </h2>
+                    <p>
+                      Transformasikan bisnis Anda dengan solusi digital inovatif.
+                      Dari branding, digital marketing, hingga AI automation—kami
+                      siap membawa bisnis Anda ke level berikutnya!
+                    </p>
+                    <a href="#">
+                      <Image
+                        src="public/img/Button.png"
+                        alt="Selengkapnya"
+                        className="cta-button"
+                      />
+                    </a>
+                  </div>
+                </div>
+                <div className="hero-image">
+                  <Image
+                    src="public/img/Picture.png"
+                    alt="Hero Illustration"
+                  />
+                </div>
+              </div>
+
+              {/* Slide 2 */}
+              <div className="slide">
+                <Image
+                  src="public/img/image-2.png"
+                  alt="AI Illustration"
+                />
+                <div className="hero-image">
+                  <div style={{ height: "300px" }}></div>
+                </div>
+              </div>
+            </div>
+          </header>
+
+          <div className="hero-navigation">
             <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={20}
-              height={20}
+              src="public/img/Arrow-left.png"
+              alt="Left Arrow"
+              className="arrow-icon"
+              id="prevSlide"
             />
-            Deploy now
-          </a>
-          <a
-            className="rounded-full border border-solid border-black/[.08] dark:border-white/[.145] transition-colors flex items-center justify-center hover:bg-[#f2f2f2] dark:hover:bg-[#1a1a1a] hover:border-transparent font-medium text-sm sm:text-base h-10 sm:h-12 px-4 sm:px-5 w-full sm:w-auto md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Read our docs
-          </a>
-        </div>
-      </main>
-      <footer className="row-start-3 flex gap-[24px] flex-wrap items-center justify-center">
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/file.svg"
-            alt="File icon"
-            width={16}
-            height={16}
-          />
-          Learn
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/window.svg"
-            alt="Window icon"
-            width={16}
-            height={16}
-          />
-          Examples
-        </a>
-        <a
-          className="flex items-center gap-2 hover:underline hover:underline-offset-4"
-          href="https://nextjs.org?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          <Image
-            aria-hidden
-            src="/globe.svg"
-            alt="Globe icon"
-            width={16}
-            height={16}
-          />
-          Go to nextjs.org →
-        </a>
-      </footer>
-    </div>
-  );
+            <Image
+              src="public/img/Arrow-right.png"
+              alt="Right Arrow"
+              className="arrow-icon"
+              id="nextSlide"
+            />
+          </div>
+        </section>
+
+        <footer className="footer">
+          <div className="footer-container">
+            {/* Kolom 1 */}
+            <div className="footer-column">
+              <Image
+                src="public/img/logo-fullcolor-negative-rgb.svg"
+                alt="Akaal"
+                className="footer-logo"
+              />
+              <p>PT. Asia Karya Lumina</p>
+              <p>
+                Jl. Gotong Royong | No.56 Rt.004/01, RT.3/RW.1,
+                <br />
+                Ragunan, Ps. Minggu, Kota Jakarta Selatan,
+                <br />
+                Daerah Khusus Ibukota Jakarta 12550
+              </p>
+              <p>📞 081213957471</p>
+              <p>📧 asiakaryalumina@gmail.com</p>
+            </div>
+
+            {/* Kolom 2 */}
+            <div className="footer-column">
+              <h4>Asia Karya Lumina</h4>
+              <ul>
+                <li><a href="#">About AKAAL</a></li>
+                <li><a href="#">Our Services</a></li>
+                <li><a href="#">Partnership</a></li>
+                <li><a href="#">Frequently Asked Question</a></li>
+              </ul>
+            </div>
+
+            {/* Kolom 3 */}
+            <div className="footer-column">
+              <h4>Tentang Event</h4>
+              <ul>
+                <li><a href="#">Buat Event</a></li>
+                <li><a href="#">Biaya</a></li>
+                <li><a href="#">Lihat Event</a></li>
+                <li><a href="#">S&amp;K Event</a></li>
+                <li><a href="#">FAQ Event</a></li>
+              </ul>
+            </div>
+
+            {/* Kolom 4 */}
+            <div className="footer-column">
+              <h4>Follow us</h4>
+              <div className="social-icons">
+                <a href="#"><i className="fab fa-instagram"></i></a>
+                <a href="#"><i className="fab fa-tiktok"></i></a>
+                <a href="#"><i className="fab fa-linkedin-in"></i></a>
+              </div>
+            </div>
+          </div>
+        </footer>
+      </>
+    );
 }
