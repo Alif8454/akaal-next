@@ -1,4 +1,5 @@
 'use client';
+
 import React, { useEffect } from "react";
 import Head from "next/head";
 import Image from "next/image";
@@ -37,7 +38,7 @@ export default function Home() {
               href="#"
             >
               <Image
-                src="public/img/icon-gradientbg-rgb.png"
+                src="/img/icon-gradientbg-rgb.png"
                 alt="Logo"
                 width="24"
                 height="24"
@@ -92,7 +93,7 @@ export default function Home() {
                     </p>
                     <a href="#">
                       <Image
-                        src="public/img/Button.png"
+                        src="/img/Button.png"
                         alt="Selengkapnya"
                         className="cta-button"
                       />
@@ -101,7 +102,7 @@ export default function Home() {
                 </div>
                 <div className="hero-image">
                   <Image
-                    src="public/img/Picture.png"
+                    src="/img/Picture.png"
                     alt="Hero Illustration"
                   />
                 </div>
@@ -110,7 +111,7 @@ export default function Home() {
               {/* Slide 2 */}
               <div className="slide">
                 <Image
-                  src="public/img/image-2.png"
+                  src="/img/image-2.png"
                   alt="AI Illustration"
                 />
                 <div className="hero-image">
@@ -122,13 +123,13 @@ export default function Home() {
 
           <div className="hero-navigation">
             <Image
-              src="public/img/Arrow-left.png"
+              src="/img/Arrow-left.png"
               alt="Left Arrow"
               className="arrow-icon"
               id="prevSlide"
             />
             <Image
-              src="public/img/Arrow-right.png"
+              src="/img/Arrow-right.png"
               alt="Right Arrow"
               className="arrow-icon"
               id="nextSlide"
@@ -141,7 +142,7 @@ export default function Home() {
             {/* Kolom 1 */}
             <div className="footer-column">
               <Image
-                src="public/img/logo-fullcolor-negative-rgb.svg"
+                src="/img/logo-fullcolor-negative-rgb.svg"
                 alt="Akaal"
                 className="footer-logo"
               />
